@@ -2,6 +2,7 @@ package com.namoo.ns1.web.user;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +44,8 @@ public class LoginController extends HttpServlet{
 		
 		//로그인 되지 않은 경우		
 		else{
-			resp.sendRedirect("main.xhtml");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/user/error.jsp");
+			dispatcher.forward(req, resp);
 			return;
 		}
 	}
