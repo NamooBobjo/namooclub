@@ -8,8 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  	
 <title>클럽개설</title>
-<%--
-<%@ include file="/WEB-INF/views/common/common.jsp" %>--%>
+<%@ include file = "/WEB-INF/views/common/common.jsp"  %>
 	
 </head>
 <body>
@@ -20,7 +19,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
          
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../login.html">로그아웃</a></li>
+                <li><a href="logout.do">로그아웃</a></li>
               
             </ul>
         </div>
