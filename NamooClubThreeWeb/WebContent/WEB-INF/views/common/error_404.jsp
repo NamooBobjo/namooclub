@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>에러페이지</title>
-<%@ include file = "/WEB-INF/views/common/common.jsp"  %>
+   <link href="./resources/common/css/bootstrap.css" rel="stylesheet">
+    <link href="./resources/common/css/bootswatch.min.css" rel="stylesheet">
     <style type="text/css">
         body {
             padding-top: 100px;
@@ -65,8 +66,8 @@
     <!-- body -->
     <div class="error-body">
 
-        <h3>에러 타이틀</h3>
-        <p>아이디와 패스워드를 확인하세요.</p>
+        <h3>404 Not found</h3>
+        <p>페이지를 찾을 수 없습니다.</p>
 
         <div class="row error-btn">
             <button class="btn btn-large btn-default" onclick = "location.href ='main.xhtml' ">홈으로 이동</button>
@@ -83,5 +84,4 @@
 	<script src="resources/common/js/bootstrap.min.js"></script>
 	<script src="resources/common/js/bootswatch.js"></script>
 </body>
-
 </html>

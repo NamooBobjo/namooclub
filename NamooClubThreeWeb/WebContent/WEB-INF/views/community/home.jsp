@@ -50,8 +50,8 @@
 					<c:forEach var="community" items="${belongCommunities}" varStatus="list">
 						<li class="list-group-item">${community.name}<br />
 						${community.description }<br/>
-							<button type="button" class="btn btn-default btn-sm">커뮤니티
-								탈퇴</button>
+							<button type="button" class="btn btn-default btn-sm">멤버 탈퇴</button>
+							<button type="button" class="btn btn-default btn-sm">상세</button>
 						</li>
 					</c:forEach>
 				</ul>
@@ -62,8 +62,7 @@
 					<c:forEach var="community" items="${communities}" varStatus="list">
 						<li class="list-group-item">${community.name}<br />
 						${community.description }<br/>
-							<button type="button" class="btn btn-default btn-sm">커뮤니티
-								가입</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "cmjoin.xhtml/?cmName=${community.name}">커뮤니티 가입</button>	
 						</li>
 					</c:forEach>
 				</ul>
