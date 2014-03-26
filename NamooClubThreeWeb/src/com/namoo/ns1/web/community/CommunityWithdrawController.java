@@ -14,15 +14,15 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
 
-@WebServlet("/cmjoin.xhtml")
-public class CommunityJoinController extends HttpServlet {
+@WebServlet("/withdraw.xhtml")
+public class CommunityWithdrawController extends HttpServlet{
 
-	private static final long serialVersionUID = 6830767991447143387L;
+	private static final long serialVersionUID = -7241663190142992002L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-	
+		
 		doPost(req, resp);
 	}
 
@@ -30,19 +30,17 @@ public class CommunityJoinController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-
 		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
-		String cmId = req.getParameter("cmId");		
+		String cmId = req.getParameter("cmId");
 		Community community = cmservice.findCommunity(cmId);
 		
 		String cmName = community.getName();
-	
-		req.setAttribute("cmId", cmId);		
+		
 		req.setAttribute("cmName", cmName);
+		req.setAttribute("cmId", cmId);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/community/join.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/community/withdraw.jsp");
 		dispatcher.forward(req, resp);
-		
 	}
 
 	

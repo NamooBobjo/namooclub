@@ -28,12 +28,11 @@ public class RegistUserController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		TownerService townerservice = NamooClubServiceFactory.getInstance().getTownerService();
-		req.setCharacterEncoding("utf-8");
+		
 		String name = req.getParameter("userName");
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		
-		System.out.println(name);
 		townerservice.registTowner(name, email, password);
 		
 		resp.sendRedirect("main.xhtml");

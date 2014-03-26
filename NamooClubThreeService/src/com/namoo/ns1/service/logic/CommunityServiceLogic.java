@@ -4,10 +4,12 @@ import java.util.List;
 
 import com.namoo.ns1.data.EntityManager;
 import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.facade.IdGenerator;
 import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 
 import dom.entity.Community;
 import dom.entity.CommunityMember;
+import dom.entity.IdValue;
 import dom.entity.SocialPerson;
 
 public class CommunityServiceLogic implements CommunityService {
@@ -41,7 +43,9 @@ public class CommunityServiceLogic implements CommunityService {
 		}
 
 		SocialPerson admin = createPerson(adminName, email, password);
-		Community community = new Community(communityName, description, admin);
+		
+		String id = IdGenerator.getNextId(Community.class);
+		Community community = new Community(id,communityName, description, admin);
 		
 		em.store(community);
 	}
@@ -58,7 +62,12 @@ public class CommunityServiceLogic implements CommunityService {
 			throw NamooExceptionFactory.createRuntime("존재하지 않는 주민입니다.");
 		}
 		
-		Community community = new Community(communityName, description, towner);
+	
+		
+		String id = IdGenerator.getNextId(Community.class);
+		
+		Community community = new Community(id,communityName, description, towner);
+		
 		em.store(community);
 	}
 
@@ -75,6 +84,7 @@ public class CommunityServiceLogic implements CommunityService {
 		//
 		return em.find(Community.class, communityName);
 	}
+	
 
 	@Override
 	public void joinAsMember(String communityName, String name, String email, String password){

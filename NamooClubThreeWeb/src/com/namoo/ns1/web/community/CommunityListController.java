@@ -52,6 +52,7 @@ public class CommunityListController extends HttpServlet{
 		req.setAttribute("loginUser", loginUser);
 		req.setAttribute("communities", communities);
 		req.setAttribute("belongCommunities", belongCommunities);
+		
 		dispatcher.forward(req, resp);
 		return;
 	}

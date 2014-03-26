@@ -24,9 +24,10 @@ public class ClListController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		//
-		
-		RequestDispatcher dispatcher = req
-				.getRequestDispatcher("/WEB-INF/views/club/home.jsp");
+		String cmName = req.getParameter("cmName");
+
+		req.setAttribute("cmName", cmName);		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/home.jsp");
 		dispatcher.forward(req, resp);
 	}
 

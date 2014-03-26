@@ -8,8 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  	
 <title>클럽개설</title>
-<%--
-<%@ include file="/WEB-INF/views/common/common.jsp" %>--%>
+<%@ include file = "/WEB-INF/views/common/common.jsp"  %>
 	
 </head>
 <body>
@@ -20,7 +19,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
          
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../login.html">로그아웃</a></li>
+                <li><a href="logout.do">로그아웃</a></li>
               
             </ul>
         </div>
@@ -36,23 +35,9 @@
 
             <div class="well">
                 <p>나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 클럽을 성장시켜 보세요.</p>
-                <form class="form-horizontal" action="./index.html">
+                <form class="form-horizontal" action="../../clCreate.do" method = "post">
                     <fieldset>
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">클럽 카테고리</label>
-
-                            <div class="col-lg-10">
-                                <select class="form-control" id="select">
-                                    <option>축구</option>
-                                    <option>야구</option>
-                                    <option>농구</option>
-                                    <option>테니스</option>
-                                    <option>MTB</option>
-                                    <option>탁구</option>
-                                    <option>배드민턴</option>
-                                </select>
-                            </div>
-                        </div>
+                      
                         <div class="form-group">
                             <label class="col-lg-2 control-label">클럽명</label>
 
@@ -60,24 +45,7 @@
                                 <input type="text" class="form-control" placeholder="클럽명">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">클럽 성격</label>
-
-                            <div class="col-lg-10">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                        공개 클럽
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                        비공개 클럽
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                      
                         <div class="form-group">
                             <label for="textArea" class="col-lg-2 control-label">클럽 대표문구</label>
 
@@ -86,31 +54,12 @@
                                 <span class="help-block">클럽을 소개하는 대표문구를 입력해 주세요. 클럽 홈화면에 입력하신 문구가 출력됩니다.</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">클럽 검색어</label>
-
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="검색어 1">
-                                <input type="text" class="form-control" placeholder="검색어 2">
-                                <input type="text" class="form-control" placeholder="검색어 3">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">클럽 멤버 가입을 위한 질문내용</label>
-
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="질문내용 1">
-                                <input type="text" class="form-control" placeholder="질문내용 2">
-                                <input type="text" class="form-control" placeholder="질문내용 3">
-                                <input type="text" class="form-control" placeholder="질문내용 4">
-                                <input type="text" class="form-control" placeholder="질문내용 5">
-                                <input type="text" class="form-control" placeholder="질문내용 6">
-                            </div>
-                        </div>
+                      
+                      
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
                                 <button type="submit" class="btn btn-primary">확인</button>
-                                <button class="btn btn-default">취소</button>
+                                <button class="btn btn-default" onclick ="cancelPage(); return false;">취소</button>
                             </div>
                         </div>
                     </fieldset>
@@ -133,6 +82,13 @@
         </div>
     </footer>
 </div>
+
+	<script>
+	function cancelPage() { 
+	   window.history.back();
+	    return false;
+	}
+	</script>
 
 </body>
 </html>

@@ -50,7 +50,7 @@
 					<c:forEach var="community" items="${belongCommunities}" varStatus="list">
 						<li class="list-group-item">${community.name}<br />
 						${community.description }<br/>
-							<button type="button" class="btn btn-default btn-sm">멤버 탈퇴</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='withdraw.xhtml?cmId=${community.id}'">멤버 탈퇴</button>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmName=${community.name}'">상세</button>
 						</li>
 					</c:forEach>
@@ -62,7 +62,7 @@
 					<c:forEach var="community" items="${communities}" varStatus="list">
 						<li class="list-group-item">${community.name}<br />
 						${community.description }<br/>
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href = 'view/community/join.xhtml?cmName=${community.name}'">커뮤니티 가입</button>	
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href = 'cmjoin.xhtml?cmId=${community.id}'">커뮤니티 가입</button>	
 						</li>
 					</c:forEach>
 				</ul>

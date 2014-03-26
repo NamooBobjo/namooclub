@@ -1,8 +1,7 @@
-package com.namoo.ns1.web.community;
+package com.namoo.ns1.web.club;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,39 +9,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
 
-@WebServlet("/cmjoin.xhtml")
-public class CommunityJoinController extends HttpServlet {
+@WebServlet("/clCreate.do")
+public class ClubCreateController extends HttpServlet{
 
-	private static final long serialVersionUID = 6830767991447143387L;
+	private static final long serialVersionUID = -1246207217819762829L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-	
+		
 		doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
-
-		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
-		String cmId = req.getParameter("cmId");		
-		Community community = cmservice.findCommunity(cmId);
-		
-		String cmName = community.getName();
 	
-		req.setAttribute("cmId", cmId);		
-		req.setAttribute("cmName", cmName);
+		TownerService twservice = NamooClubServiceFactory.getInstance().getTownerService();
+		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/community/join.jsp");
-		dispatcher.forward(req, resp);
-		
+		resp.sendRedirect("clList.xhtml");
 	}
 
 	

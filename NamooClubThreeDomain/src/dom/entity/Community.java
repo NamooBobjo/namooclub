@@ -9,9 +9,13 @@ public class Community implements Identifiable {
 
 	private static final long serialVersionUID = -1649818789572216203L;
 	
+	private String id;
 	private String name;
 	private String description;
+
 	
+
+
 	private CommunityManager manager;
 	private List<CommunityMember> members;
 
@@ -23,6 +27,24 @@ public class Community implements Identifiable {
 	 * @param communityName
 	 * @param admin
 	 */
+	
+	public Community(String id, String communityName, String description, SocialPerson admin){
+		//
+		this.id = id;
+		this.name = communityName;
+		this.description = description;
+		this.members = new ArrayList<CommunityMember>();
+		
+		
+		setManager(admin);
+		addMember(admin);
+	}
+	
+	public String getId() {
+		return id;
+	}	
+
+	@Deprecated
 	public Community(String communityName, String description, SocialPerson admin){
 		//
 		this.name = communityName;
@@ -96,7 +118,7 @@ public class Community implements Identifiable {
 	@Override
 	public String getOId() {
 		// 
-		return name;
+		return id;
 	}
 
 	public void removeMember(String email) {

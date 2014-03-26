@@ -7,8 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>클럽</title>
-<link href="${ctx}/resources/common/css/bootstrap.css" rel="stylesheet">
-<link href="${ctx}/resources/common/css/bootswatch.min.css" rel="stylesheet">
+<%@ include file = "/WEB-INF/views/common/common.jsp"  %>
 </head>
 <body>
 
@@ -18,7 +17,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
          
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../login.html">로그아웃</a></li>
+                <li><a href="logout.do">로그아웃</a></li>
               
             </ul>
         </div>
@@ -30,9 +29,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-                    <h1>나무커뮤니티</h1>
-                    <p>나무커뮤니티에는 다양한 클럽이 있습니다.</p>
-                    <p><a class="btn btn-warning btn-lg" onclick="location.href='clCreate.xhtml'">클럽 개설</a></p>
+                    <h1>${cmName}</h1>
+                    <p>${cmName}에는 다양한 클럽이 있습니다.</p>
+                    <p><a class="btn btn-warning btn-lg" onclick="location.href='view/club/create.xhtml'">클럽 개설</a></p>
                 </div>
             </div>
         </div>
@@ -81,11 +80,6 @@
         </div>
     </footer>
 </div>
-
-
-<script src="${ctx}/resources/common/js/jquery-2.1.0.js"></script>
-<script src="${ctx}/resources/common/js/bootstrap.min.js"></script>
-<script src="${ctx}/resources/common/js/bootswatch.js"></script>
 
 </body>
 </html>

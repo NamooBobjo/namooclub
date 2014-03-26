@@ -8,42 +8,37 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-import dom.entity.Community;
+@WebServlet("/cmwithdraw.do")
+public class DoCommunityWithdrawController extends HttpServlet{
 
-@WebServlet("/cmjoin.xhtml")
-public class CommunityJoinController extends HttpServlet {
-
-	private static final long serialVersionUID = 6830767991447143387L;
+	private static final long serialVersionUID = -8421419443329457788L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-	
+		// 
 		doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
-
+		//
+		HttpSession session = req.getSession();
 		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
-		String cmId = req.getParameter("cmId");		
-		Community community = cmservice.findCommunity(cmId);
 		
-		String cmName = community.getName();
-	
-		req.setAttribute("cmId", cmId);		
-		req.setAttribute("cmName", cmName);
+		String cmId = req.getParameter("cmId");
+		String email = (String)session.getAttribute("loginID");	
+		String cmName = req.getParameter("cmName");
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/community/join.jsp");
-		dispatcher.forward(req, resp);
+		cmservice.withdrawalCommunity(cmId, email);
+		
+		resp.sendRedirect("cmList.xhtml");
 		
 	}
-
-	
 }
