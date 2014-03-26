@@ -29,12 +29,12 @@ public class DoCommunityRemoveController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// 
-		HttpSession session = req.getSession();
 		
-		String cmName = (String)session.getAttribute("cmName");
+		String cmId = req.getParameter("cmId");
+		
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-		service.removeCommunity(cmName);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/cmList.xhtml");
-		dispatcher.forward(req, resp);
+		service.removeCommunity(cmId);
+		
+		resp.sendRedirect("cmList.xhtml");
 	}
 }

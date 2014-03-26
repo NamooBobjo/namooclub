@@ -1,4 +1,4 @@
-package com.namoo.ns1.web.club;
+package com.namoo.ns1.web.community;
 
 import java.io.IOException;
 
@@ -14,34 +14,33 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
 
-@WebServlet("/clList.xhtml")
-public class ClListController extends HttpServlet{
+@WebServlet("/cmRemove.xhtml")
+public class CommunityRemoveController extends HttpServlet {
 
-	private static final long serialVersionUID = 3879339579100526413L;
+	private static final long serialVersionUID = -5204297478981537446L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-	doPost(req, resp);
+	
+		doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//
-		
+	
 		String cmId = req.getParameter("cmId");
 		
 		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
 		Community community = cmservice.findCommunity(cmId);
-		System.out.println(cmId);
 		String cmName = community.getName();
 		
 		req.setAttribute("cmName", cmName);
-		req.setAttribute("cmId", cmId);		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/home.jsp");
+		req.setAttribute("cmId", cmId);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/community/remove.jsp");
 		dispatcher.forward(req, resp);
 	}
 
-	
 }

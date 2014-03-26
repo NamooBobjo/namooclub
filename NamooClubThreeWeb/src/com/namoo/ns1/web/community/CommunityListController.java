@@ -42,15 +42,23 @@ public class CommunityListController extends HttpServlet{
 		
 		List<Community> belongCommunities = service.findBelongCommunities(loginID);
 		List<Community> communities =service.findAllCommunities();
+		List<Community> managedCommunities = service.findManagedCommnities(loginID);
+		
+		
 		
 		for(Community community : belongCommunities){
 			communities.remove(community);
+		}
+		
+		for(Community community : managedCommunities){
+			belongCommunities.remove(community);
 		}
 				
 		String loginUser = townerservice.findTowner(loginID).getName();
 		
 		req.setAttribute("loginUser", loginUser);
 		req.setAttribute("communities", communities);
+		req.setAttribute("managedCommunities", managedCommunities);
 		req.setAttribute("belongCommunities", belongCommunities);
 		
 		dispatcher.forward(req, resp);
