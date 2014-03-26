@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-@WebServlet("/cmjoin.xhtml")
+@WebServlet("/.xhtml")
 public class CommunityJoinController extends HttpServlet{
 
 	private static final long serialVersionUID = 6830767991447143387L;
