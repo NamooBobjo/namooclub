@@ -67,7 +67,7 @@
     <div class="error-body">
 
         <h3>에러 타이틀</h3>
-        <p>에러 내용 출력합니다.</p>
+        <p>아이디와 패스워드를 확인하세요.</p>
 
         <div class="row error-btn">
             <button class="btn btn-large btn-default" onclick = "location.href ='main.xhtml' ">홈으로 이동</button>

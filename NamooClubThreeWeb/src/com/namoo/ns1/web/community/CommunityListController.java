@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
@@ -33,9 +35,23 @@ public class CommunityListController extends HttpServlet{
 		//
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/home.jsp");
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-
-		List<Community>communities =service.findAllCommunities();
+		TownerService townerservice = NamooClubServiceFactory.getInstance().getTownerService();
+		HttpSession session = req.getSession();
+			
+		String loginID = (String) session.getAttribute("loginID");
+		
+		List<Community> belongCommunities = service.findBelongCommunities(loginID);
+		List<Community> communities =service.findAllCommunities();
+		
+		for(Community community : belongCommunities){
+			communities.remove(community);
+		}
+				
+		String loginUser = townerservice.findTowner(loginID).getName();
+		
+		req.setAttribute("loginUser", loginUser);
 		req.setAttribute("communities", communities);
+		req.setAttribute("belongCommunities", belongCommunities);
 		dispatcher.forward(req, resp);
 		return;
 	}

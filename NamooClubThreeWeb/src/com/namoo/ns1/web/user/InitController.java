@@ -28,7 +28,7 @@ public class InitController extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		if(session.getAttribute("loginId")!=null){
-			
+			resp.sendRedirect("cmList.xhtml");
 			return;
 		}
 		

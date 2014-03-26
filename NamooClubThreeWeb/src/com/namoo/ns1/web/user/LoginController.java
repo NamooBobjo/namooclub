@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet{
 		//로그인 된 경우
 		if(townerservice.loginAsTowner(userID, userPS)){
 			session.setAttribute("loginID", userID);
-			resp.sendRedirect("cmlist.xhtml");
+			resp.sendRedirect("cmList.xhtml");
 			return;
 		}
 		
