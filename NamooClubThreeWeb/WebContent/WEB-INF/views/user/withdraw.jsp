@@ -27,7 +27,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-lg-10">
-									비밀번호 : <input type="text" class="form-control"placeholder="비밀번호">
+									비밀번호 : <input type="text" class="form-control" name="password"  placeholder="비밀번호">
 								</div>
 							</div>
 							<div class="form-group">

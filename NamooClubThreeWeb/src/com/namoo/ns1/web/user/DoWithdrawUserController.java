@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 
 @WebServlet("/user/withdraw.do")
 public class DoWithdrawUserController extends HttpServlet {
@@ -32,6 +33,11 @@ public class DoWithdrawUserController extends HttpServlet {
 		TownerService townerService= NamooClubServiceFactory.getInstance().getTownerService();
 		
 		String email = (String) session.getAttribute("loginID");
+		String password = req.getParameter("password");
+		if (!townerService.findTowner(email).getPassword().equals(password)) {
+			throw NamooExceptionFactory.createRuntime("패스워드를 확인해 주세요.");
+		}
+		
 		townerService.removeTowner(email);//삭제
 		
 		resp.sendRedirect("../main.xhtml");		
