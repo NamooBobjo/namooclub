@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
+@WebServlet("/club/withdraw.do")
 public class DoClWithdrawController extends HttpServlet {
 
 	private static final long serialVersionUID = 2511040536502316369L;
@@ -31,9 +33,9 @@ public class DoClWithdrawController extends HttpServlet {
 		String email = (String)session.getAttribute("loginID");
 		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
 		String clubId = req.getParameter("clubId");
-		
+		String cmId = req.getParameter("cmId");
 		clservice.withdrawalClub(clubId, email);
-		resp.sendRedirect("clList.xhtml");
+		resp.sendRedirect("../clList.xhtml?cmId="+cmId);
 	}
 
 	

@@ -47,7 +47,7 @@
 
             <div class="well">
                 <p>아래의 내용을 확인해 주세요.</p>
-                <form class="form-horizontal" action="join.do" method = "post">
+                <form class="form-horizontal" action="join.do?cmId=${cmId}&clId=${clId}" method = "post">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">클럽명</label>

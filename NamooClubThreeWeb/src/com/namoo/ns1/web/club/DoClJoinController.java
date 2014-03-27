@@ -36,6 +36,7 @@ public class DoClJoinController extends HttpServlet {
 		
 		clservice.joinAsMember(clId, email);
 		
-		resp.sendRedirect("clList.xhtml?cmId="+cmId);
+		
+		resp.sendRedirect("../clList.xhtml?cmId="+cmId);
 	}	
 }
