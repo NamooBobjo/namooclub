@@ -30,7 +30,7 @@
             <div class="col-lg-12">
                 <div class="jumbotron">
                     <h1>${cmName}</h1>
-                    <p>${cmName} 클럽에는 다양한 즐거움이 있습니다.</p>
+                    <p>${cmName} 커뮤니티에는 다양한 클럽이 있습니다.</p>
                     <p><a class="btn btn-warning btn-lg" onclick="location.href='club/create.xhtml?cmId=${cmId}'">클럽 개설</a></p>
                 </div>
             </div>
@@ -60,26 +60,28 @@
 						<h4>${belongclub.name}</h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">탈퇴</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='club/clWithdraw.xhtml?cmId=${cmId}&clId=${belongclub.id}'">탈퇴</button>
 						</li>
 					</c:forEach>		
-			<div class="page-header">
+					</ul>
+					
+			
                 <h2 id="container">미가입된 클럽</h2>
-            </div> 
+            <ul class="list-group">
               	<c:forEach var="club" items="${clubs}" varStatus="list">
 						<li class="list-group-item">
 						
 						<h4>${club.name}</h4>	 
 						<p>${club.description }</p>						
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${club.id}'">가입</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='club/clJoin.xhtml?cmId=${cmId}&clId=${club.id}'">가입</button>
 						</li>
 					</c:forEach>		
                 
-            </ul>
+           </ul>
 
         </div>
+        
     </div>
-
 <!-- Footer ========================================================================================== -->
     <footer>
         <div class="row">

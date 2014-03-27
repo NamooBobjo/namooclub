@@ -9,38 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.namoo.ns1.service.facade.ClubService;
-import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+@WebServlet("/club/create.xhtml")
+public class ClCreateController extends HttpServlet{
 
-@WebServlet("/club/clJoin.xhtml")
-public class ClJoinController extends HttpServlet {
-
-	private static final long serialVersionUID = -1562159333306774813L;
+	private static final long serialVersionUID = 4461129352411687538L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		doPost(req, resp);
+	doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-
+	
 		String cmId = req.getParameter("cmId");
-		String clId = req.getParameter("clId");
 		
 		req.setAttribute("cmId", cmId);
-		req.setAttribute("clId", clId);
+		System.out.println();
 		
-		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
-		String clubName = clservice.findClub(clId).getName();
-		
-		req.setAttribute("clubName", clubName);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/join.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/create.jsp");
 		dispatcher.forward(req, resp);
-		
 	}
-
+	
+	
 }

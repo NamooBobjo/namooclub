@@ -51,7 +51,7 @@ public class ClListController extends HttpServlet{
 		}
 
 		for(Club club : managedclubs){
-			clubs.remove(club);
+			belongclubs.remove(club);
 		}
 		
 		String cmname = community.getName();

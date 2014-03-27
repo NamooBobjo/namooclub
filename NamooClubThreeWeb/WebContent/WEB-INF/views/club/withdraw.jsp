@@ -23,28 +23,7 @@
         </div>
     </div>
 </div>
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h1>우리동네 축구클럽</h1>
-                    <p>우리동네 축구클럽은 해뜨자마자 바로 시작해요.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-12 col-lg-12">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">건강커뮤니티</a></li>
-                    <li class="active">우리동네 축구클럽</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</header>
 
 <div class="container">
     <div class="row">
@@ -61,13 +40,13 @@
                             <label class="col-lg-2 control-label">클럽명</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="커뮤니티명">
+                                <input type="text" class="form-control" value ="${clubName}"disabled >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='clList.xhtml'">탈퇴</button>
-                                <button class="btn btn-default" onclick="history.back();">취소</button>
+                                <button type="submit" class="btn btn-primary" onclick="location.href='club/withdraw.do?cmId=${cmId}&clubId=${clubId}'">탈퇴</button>
+                                <button class="btn btn-default" onclick="cancelPage(); return false;">취소</button>
                             </div>
                         </div>
                     </fieldset>
@@ -91,6 +70,12 @@
         </div>
     </footer>
 </div>
+	<script>
+	function cancelPage() { 
+	   window.history.back();
+	    return false;
+	}
+	</script>
 
 </body>
 </html>

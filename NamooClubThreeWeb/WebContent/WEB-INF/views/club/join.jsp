@@ -29,19 +29,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-                    <h1>우리동네 축구클럽</h1>
-                    <p>우리동네 축구클럽은 해뜨자마자 바로 시작해요.</p>
+                    <h2>우리동네 축구클럽</h2>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 col-lg-12">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">건강커뮤니티</a></li>
-                    <li class="active">우리동네 축구클럽</li>
-                </ol>
             </div>
         </div>
     </div>
@@ -58,26 +47,26 @@
 
             <div class="well">
                 <p>아래의 내용을 확인해 주세요.</p>
-                <form class="form-horizontal" action="./index.html">
+                <form class="form-horizontal" action="join.do" method = "post">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">클럽명</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="클럽명">
+                                <input type="text" class="form-control" value="${clubName }" disabled>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-2 control-label">클럽소개</label>
+                            <label class="col-lg-2 control-label">열심히 활동하실거죠? 각오한마디</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" rows="3" placeholder="클럽소개글">
+                                <input type="text" class="form-control" rows="3" >
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
                                 <button type="submit" class="btn btn-primary">가입</button>
-                                <button class="btn btn-default">취소</button>
+                                <button class="btn btn-default" onclick = "cancelPage(); return false;">취소</button>
                             </div>
                         </div>
                     </fieldset>
@@ -100,6 +89,11 @@
         </div>
     </footer>
 </div>
-
+	<script>
+	function cancelPage() { 
+	   window.history.back();
+	    return false;
+	}
+	</script>
 </body>
 </html>
