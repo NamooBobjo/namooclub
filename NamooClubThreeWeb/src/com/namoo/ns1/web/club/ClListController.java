@@ -31,16 +31,14 @@ public class ClListController extends HttpServlet{
 			throws ServletException, IOException {
 		//
 		
-		
-		
 		String cmId = req.getParameter("cmId");
 		
 		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
 		Community community = cmservice.findCommunity(cmId);
 		System.out.println(cmId);
-		String cmName = community.getName();
+		String cmname = community.getName();
 		
-		req.setAttribute("cmName", cmName);
+		req.setAttribute("cmName", cmname);
 		req.setAttribute("cmId", cmId);		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/home.jsp");
 		dispatcher.forward(req, resp);
