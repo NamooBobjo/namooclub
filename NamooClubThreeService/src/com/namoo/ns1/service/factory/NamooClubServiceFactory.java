@@ -26,5 +26,10 @@ public class NamooClubServiceFactory {
 		// 
 		return new TownerServiceLogic();
 	}
+	
+	public ClubService getClubService() {
+		//
+		return new ClubServiceLogic();
+	}
 
 }
