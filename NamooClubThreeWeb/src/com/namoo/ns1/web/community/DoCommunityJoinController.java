@@ -2,7 +2,6 @@ package com.namoo.ns1.web.community;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
-
-import dom.entity.Community;
-import dom.entity.SocialPerson;
 
 @WebServlet("/cmjoin.do")
 public class DoCommunityJoinController extends HttpServlet{

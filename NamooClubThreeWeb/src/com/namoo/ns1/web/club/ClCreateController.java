@@ -27,7 +27,6 @@ public class ClCreateController extends HttpServlet{
 		String cmId = req.getParameter("cmId");
 		
 		req.setAttribute("cmId", cmId);
-		System.out.println();
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/create.jsp");
 		dispatcher.forward(req, resp);

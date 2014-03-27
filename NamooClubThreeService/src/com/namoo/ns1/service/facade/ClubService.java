@@ -4,7 +4,6 @@ import java.util.List;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
-import dom.entity.Community;
 
 public interface ClubService {
 	

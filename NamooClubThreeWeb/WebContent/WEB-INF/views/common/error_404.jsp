@@ -5,8 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>에러페이지</title>
-   <link href="./resources/common/css/bootstrap.css" rel="stylesheet">
-    <link href="./resources/common/css/bootswatch.min.css" rel="stylesheet">
+<%@ include file = "/WEB-INF/views/common/common.jsp"  %>
     <style type="text/css">
         body {
             padding-top: 100px;
@@ -79,9 +78,5 @@
         <p>© NamooSori 2014.</p>
     </div>
 </div>
-
-	<script src="resources/common/js/jquery-2.1.0.js"></script>
-	<script src="resources/common/js/bootstrap.min.js"></script>
-	<script src="resources/common/js/bootswatch.js"></script>
 </body>
 </html>

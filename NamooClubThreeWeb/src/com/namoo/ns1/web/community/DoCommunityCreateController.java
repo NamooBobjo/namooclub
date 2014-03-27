@@ -2,7 +2,6 @@ package com.namoo.ns1.web.community;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +12,6 @@ import javax.servlet.http.HttpSession;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
-
-import dom.entity.SocialPerson;
 
 @WebServlet("/cmcreate.do")
 public class DoCommunityCreateController extends HttpServlet{
@@ -43,8 +40,6 @@ public class DoCommunityCreateController extends HttpServlet{
 		String cmName = req.getParameter("cmName");
 		String description = req.getParameter("description");
 		
-		System.out.println(cmName);
-	
 		cmservice.registCommunity(cmName, description, email);
 		
 		resp.sendRedirect("cmList.xhtml");
