@@ -1,5 +1,6 @@
 package com.namoo.ns1.web.club;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -29,9 +30,6 @@ public class ClListController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		//
-		String cmName = req.getParameter("cmName");
-		
-		req.setAttribute("cmName", cmName);
 		
 		
 		
