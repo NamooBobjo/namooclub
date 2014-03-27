@@ -29,6 +29,11 @@ public class ClListController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		//
+		String cmName = req.getParameter("cmName");
+		
+		req.setAttribute("cmName", cmName);
+		
+		
 		
 		String cmId = req.getParameter("cmId");
 		
