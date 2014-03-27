@@ -10,7 +10,6 @@ import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
-import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 public class ClubServiceLogic implements ClubService {
