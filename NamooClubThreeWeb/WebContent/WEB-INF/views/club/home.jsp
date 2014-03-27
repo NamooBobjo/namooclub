@@ -54,7 +54,7 @@
                 </li>
 			<div class="page-header">
                 <h2 id="container">미가입된 클럽</h2>
-            </div>
+            </div> 
             <li class="list-group-item">
                     <span class="badge">2011.03.21</span>
                     <h4><span class="label label-primary">MTB</span>&nbsp;백두에서 한라까지 (팀:21, 회원:59)</h4>

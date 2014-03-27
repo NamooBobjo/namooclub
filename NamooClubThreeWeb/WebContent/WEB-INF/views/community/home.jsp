@@ -13,9 +13,18 @@
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
-				<font color="orange">${loginUser}님 환영합니다~!</font>
+			<font color="lightblue">${loginUser}님 환영합니다~!</font>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="logout.do">로그아웃</a></li>
+					
+					 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">설정 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">개인정보</a></li>
+                        <li><a href="#">모바일 환경설정</a></li>
+                    </ul>
+                </li>
+					
 				</ul>
 			</div>
 		</div>
@@ -50,7 +59,7 @@
 					<c:forEach var="community" items="${managedCommunities}" varStatus="list">
 						<li class="list-group-item">
 						<span class="label label-warning">관리</span>
-						<h4>${community.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${community.id}'>삭제</a></span>
+						<h4>${community.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${community.id}'><font color = "black">삭제</font></a></span>
 						<p>${community.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${community.id}'">상세</button>
 						</li>

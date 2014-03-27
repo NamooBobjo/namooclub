@@ -33,6 +33,14 @@ public class RegistUserController extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		
+		System.out.println(password);
+		if(name.equals("") || email.equals("")|| password.equals("")){
+			resp.sendRedirect("view/user/join.xhtml");
+			return;
+		}
+		
+		
+		
 		townerservice.registTowner(name, email, password);
 		
 		resp.sendRedirect("main.xhtml");

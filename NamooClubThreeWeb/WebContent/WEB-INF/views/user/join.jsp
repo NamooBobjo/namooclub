@@ -49,7 +49,7 @@
 
 				<div class="well">
 					<p>회원가입을 위해 아래 내용들을 작성해 주세요.</p>
-					<form class="form-horizontal" action="../../regist.do" method = "post">
+					<form class="form-horizontal" action="../../regist.do" onsubmit="return checkPass();" method = "post">
 						<fieldset>
 							<div class="form-group">
 								<label class="col-lg-2 control-label" >이름</label>
@@ -70,30 +70,20 @@
 								<label class="col-lg-2 control-label">비밀번호</label>
 
 								<div class="col-lg-10">
-									<input type="password" class="form-control" placeholder="비밀번호" name = "password">
+									<input type="password" class="form-control" placeholder="비밀번호" id = "pass" name = "password">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">비밀번호 확인</label>
 
 								<div class="col-lg-10">
-									<input type="password" class="form-control"
-										placeholder="비밀번호 확인">
+									<input type="password" class="form-control" placeholder="비밀번호 확인" id = "pass2" name = "password2">
 								</div>
 							</div>
-							
-						
-							<div class="form-group">
-								<label class="col-lg-2 control-label">주소</label>
-
-								<div class="col-lg-10">
-									<input type="text" class="form-control" placeholder="주소">
-								</div>
-							</div>
-							
+														
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
-									<button type="submit" class="btn btn-primary">확인</button>
+									<button type="submit" class="btn btn-primary" >확인</button>
 									<button class="btn btn-default" onclick ="cancelPage(); return false;">취소</button>
 								</div>
 							</div>
@@ -126,6 +116,22 @@
 	   window.history.back();
 	    return false;
 	}
+	
+	
+	function checkPass(){
+		var pass = document.getElementById("pass").value;
+		var pass2 = document.getElementById("pass2").value;
+		
+		if(pass==pass2){
+			return true;
+		}
+		else{
+			alert('비밀번호를 확인해주세요');
+			document.getElementById("pass2").focus();
+			return false;
+		}
+	}
+
 	</script>
 
 </body>
