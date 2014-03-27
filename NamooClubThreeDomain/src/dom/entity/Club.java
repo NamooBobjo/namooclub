@@ -1,6 +1,7 @@
 package dom.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.namoo.ns1.common.Identifiable;
 

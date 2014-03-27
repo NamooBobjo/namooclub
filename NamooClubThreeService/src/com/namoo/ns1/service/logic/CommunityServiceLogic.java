@@ -9,7 +9,6 @@ import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 
 import dom.entity.Community;
 import dom.entity.CommunityMember;
-import dom.entity.IdValue;
 import dom.entity.SocialPerson;
 
 public class CommunityServiceLogic implements CommunityService {

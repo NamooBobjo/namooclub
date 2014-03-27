@@ -13,9 +13,6 @@ public class Community implements Identifiable {
 	private String name;
 	private String description;
 
-	
-
-
 	private CommunityManager manager;
 	private List<CommunityMember> members;
 
