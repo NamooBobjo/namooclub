@@ -101,7 +101,7 @@
                 <ul class="list-unstyled">
                     <li class="pull-right"><a href="#top">위로 이동</a></li>
                     <li><a href="cmList.xhtml">커뮤니티 홈</a></li>
-                    <li><a href="#">회원탈퇴</a></li>
+                    <li><a href="user/withdraw.xhtml">회원탈퇴</a></li>
                 </ul>
                 <p>© NamooSori 2014.</p>
             </div>
