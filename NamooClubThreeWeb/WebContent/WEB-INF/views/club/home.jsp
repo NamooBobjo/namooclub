@@ -49,7 +49,7 @@
 				 	<c:forEach var="managedclub" items="${managedclubs}" varStatus="list">
 						<li class="list-group-item">
 						<span class="label label-warning">관리</span>
-						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${cmId}&clId=${club.id}'><font color = "black">삭제</font></a></span>
+						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'clRemove.xhtml?cmId=${cmId}&clId=${managedclub.id}'><font color = "black">삭제</font></a></span>
 						<p>${managedclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${managed.id}'">상세</button>
 						</li>
