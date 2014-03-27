@@ -44,13 +44,19 @@ public class ClListController extends HttpServlet{
 		
 		List<Club> clubs = clservice.findClubsById(cmId);
 		List<Club> belongclubs = clservice.findBelongClub(email);
+		List<Club> managedclubs = clservice.findManagedClub(email);
 		
 		for(Club club : belongclubs){
+			clubs.remove(club);
+		}
+
+		for(Club club : managedclubs){
 			clubs.remove(club);
 		}
 		
 		String cmname = community.getName();
 		
+		req.setAttribute("managedclubs", managedclubs);
 		req.setAttribute("clubs", clubs);
 		req.setAttribute("cmName", cmname);
 		req.setAttribute("cmId", cmId);		

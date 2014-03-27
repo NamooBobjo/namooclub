@@ -46,11 +46,21 @@
                 <h2 id="container">가입된 클럽</h2>
             </div>
 				<ul class="list-group">
+				 	<c:forEach var="managedclub" items="${managedclubs}" varStatus="list">
+						<li class="list-group-item">
+						<span class="label label-warning">관리</span>
+						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${managed.id}'><font color = "black">삭제</font></a></span>
+						<p>${managedclub.description }</p>						
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${managed.id}'">상세</button>
+						</li>
+					</c:forEach>		
+				
              	<c:forEach var="belongclub" items="${belongclubs}" varStatus="list">
 						<li class="list-group-item">
-						<h4>${belongclub.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${belongclub.id}'><font color = "black">삭제</font></a></span>
+						<h4>${belongclub.name}</h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">탈퇴</button>
 						</li>
 					</c:forEach>		
 			<div class="page-header">
@@ -59,9 +69,9 @@
               	<c:forEach var="club" items="${clubs}" varStatus="list">
 						<li class="list-group-item">
 						
-						<h4>${club.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${club.id}'><font color = "black">삭제</font></a></span>
+						<h4>${club.name}</h4>	 
 						<p>${club.description }</p>						
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${club.id}'">상세</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${club.id}'">가입</button>
 						</li>
 					</c:forEach>		
                 
