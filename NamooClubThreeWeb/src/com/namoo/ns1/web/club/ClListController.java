@@ -2,6 +2,7 @@ package com.namoo.ns1.web.club;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,10 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
+import dom.entity.Club;
 import dom.entity.Community;
 
 @WebServlet("/clList.xhtml")
@@ -30,16 +34,28 @@ public class ClListController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		//
-		
+		HttpSession session = req.getSession();
+		String email = (String)session.getAttribute("loginID");
 		String cmId = req.getParameter("cmId");
 		
 		CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
 		Community community = cmservice.findCommunity(cmId);
-		System.out.println(cmId);
+		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
+		
+		List<Club> clubs = clservice.findClubsById(cmId);
+		List<Club> belongclubs = clservice.findBelongClub(email);
+		
+		for(Club club : belongclubs){
+			clubs.remove(club);
+		}
+		
 		String cmname = community.getName();
 		
+		req.setAttribute("clubs", clubs);
 		req.setAttribute("cmName", cmname);
 		req.setAttribute("cmId", cmId);		
+		req.setAttribute("belongclubs", belongclubs);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/home.jsp");
 		dispatcher.forward(req, resp);
 	}

@@ -55,14 +55,14 @@
 								<label class="col-lg-2 control-label" >이름</label>
 
 								<div class="col-lg-10">
-									<input type="text" class="form-control" placeholder="이름" name = "userName">
+									<input type="text" class="form-control" placeholder="이름" name = "userName" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">이메일</label>
 
 								<div class="col-lg-10">
-									<input type="text" class="form-control" placeholder="이메일" name = "email">
+									<input type="text" class="form-control" placeholder="이메일" name = "email" required>
 									<span class="help-block">입력하신 이메일은 회원ID로 사용됩니다.</span>
 								</div>
 							</div>
@@ -70,14 +70,14 @@
 								<label class="col-lg-2 control-label">비밀번호</label>
 
 								<div class="col-lg-10">
-									<input type="password" class="form-control" placeholder="비밀번호" id = "pass" name = "password">
+									<input type="password" class="form-control" placeholder="비밀번호" id = "pass" name = "password" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">비밀번호 확인</label>
 
 								<div class="col-lg-10">
-									<input type="password" class="form-control" placeholder="비밀번호 확인" id = "pass2" name = "password2">
+									<input type="password" class="form-control" placeholder="비밀번호 확인" id = "pass2" name = "password2" required>
 								</div>
 							</div>
 														

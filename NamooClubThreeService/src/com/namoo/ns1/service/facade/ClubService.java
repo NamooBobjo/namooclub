@@ -4,18 +4,20 @@ import java.util.List;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
+import dom.entity.Community;
 
 public interface ClubService {
 	
 	/**
 	 * [주민으로 등록되지 않은 경우] 클럽 개설
 	 */
-	public void registClub(String clubName, String description, String adminName, String email, String password);
+	public void registClub(String cmId, String clubName, String description,
+			String adminName, String email, String password);
 
 	/**
 	 * [주민으로 등록된 경우] 클럽 개설
 	 */
-	public void registClub(String clubName, String description, String email);
+	public void registClub(String cmId,String clubName, String description, String email);
 
 	/**
 	 * 
@@ -37,13 +39,15 @@ public interface ClubService {
 	 * @return
 	 */
 	public List<Club> findAllClubs();
-	
-	
 	/**
 	 * 이메일로 클럽 회원 찾기
 	 */
 	public ClubMember findClubMember(String clubName, String email);
 	
+	public List<Club> findClubsById(String id);
+	/**
+	 * 해당 커뮤니티에 속해있는 클럽 조회
+	 */
 	
 	/**
 	 * 클럽 회원목록 조회

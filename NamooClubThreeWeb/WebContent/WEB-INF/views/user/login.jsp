@@ -77,8 +77,8 @@ body{
 		<!-- form -->
 		
 		<form class = "form-signin" action="login.do" method = "post">
-			<input type="text" class="form-control" name = "userID" id="inputEmail" placeholder="아이디"> 
-			<input type="password"class="form-control" name = "userPS" id="inputPassword" placeholder="비밀번호">
+			<input type="text" class="form-control" name = "userID" id="inputEmail" placeholder="아이디" required> 
+			<input type="password"class="form-control" name = "userPS" id="inputPassword" placeholder="비밀번호" required>
 			<label class="checkbox">
 			 <input type="checkbox"	value="remember-me"> 아이디 기억하기
 			</label>

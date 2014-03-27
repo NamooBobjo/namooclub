@@ -9,6 +9,7 @@ public class Club implements Identifiable {
 
 	private static final long serialVersionUID = -9203553406578338655L;
 
+	private String cmid;
 	private String id;
 	private String name;
 	private String description;
@@ -25,8 +26,9 @@ public class Club implements Identifiable {
 	 * @param admin
 	 */
 	
-	public Club (String id, String clubName, String description, SocialPerson admin) {
+	public Club (String cmid, String id, String clubName, String description, SocialPerson admin) {
 		//
+		this.cmid=cmid;
 		this.id = id;
 		this.name = clubName;
 		this.description= description;
@@ -36,9 +38,7 @@ public class Club implements Identifiable {
 		addMember(admin);
 		
 	}
-	public String getId() {
-		return id;
-	}
+
 	
 	@Deprecated
 	public Club (String clubName, String description, SocialPerson admin) {
@@ -53,6 +53,13 @@ public class Club implements Identifiable {
 	//--------------------------------------------------------------------------
 		// getter/setter
 	
+	public String getCmid() {
+		return cmid;
+	}
+	
+	public String getId() {
+		return id;
+	}
 	
 	public String getName() {
 		return name;

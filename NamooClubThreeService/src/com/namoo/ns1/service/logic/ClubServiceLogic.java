@@ -10,6 +10,7 @@ import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
+import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 public class ClubServiceLogic implements ClubService {
@@ -22,7 +23,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 	
 	@Override
-	public void registClub(String clubName, String description,
+	public void registClub(String cmId, String clubName, String description,
 			String adminName, String email, String password) {
 		//
 		if (em.find(Club.class, clubName) != null) {
@@ -36,7 +37,8 @@ public class ClubServiceLogic implements ClubService {
 		SocialPerson admin = createPerson(adminName, email, password);
 		
 		String id = IdGenerator.getNextId(Club.class);
-		Club club = new Club(id, clubName, description, admin);
+		String cmid = cmId;
+		Club club = new Club(cmid, id, clubName, description, admin);
 		
 		em.store(club);
 	}
@@ -51,7 +53,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public void registClub(String clubName, String description, String email) {
+	public void registClub(String cmId, String clubName, String description, String email) {
 		//
 		if (em.find(Club.class, clubName) != null) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 클럽입니다.");
@@ -62,9 +64,10 @@ public class ClubServiceLogic implements ClubService {
 			throw NamooExceptionFactory.createRuntime("존재하지 않는 주민입니다.");
 		}
 		
-		String id = IdGenerator.getNextId(Club.class);
 		
-		Club club = new Club(id, clubName, description, towner);
+		String id = IdGenerator.getNextId(Club.class);
+		String cmid = cmId;
+		Club club = new Club(cmid, id, clubName, description, towner);
 		
 		em.store(club);
 	}
@@ -180,6 +183,21 @@ public class ClubServiceLogic implements ClubService {
 		return belongs;
 	}
 
+	@Override
+	public List<Club> findClubsById(String id) {
+		// 
+		List<Club> Allclubs = em.findAll(Club.class);
+		if (Allclubs == null) return null;
+		
+		List<Club> clubs = new ArrayList<>();
+		for (Club club : Allclubs) {
+			if (club.getCmid().equals(id)) {
+				clubs.add(club);
+			}
+		}
+		return clubs;
+	}
+	
 	@Override
 	public List<Club> findManagedClub(String email) {
 		//

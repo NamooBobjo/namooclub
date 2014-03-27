@@ -35,22 +35,22 @@
 
             <div class="well">
                 <p>나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 클럽을 성장시켜 보세요.</p>
-                <form class="form-horizontal" action="../../clCreate.do" method = "post">
+                <form class="form-horizontal" action="../clCreate.do?cmId=${cmId}" method = "post">
                     <fieldset>
                       
                         <div class="form-group">
                             <label class="col-lg-2 control-label">클럽명</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="클럽명">
+                                <input type="text" class="form-control" placeholder="클럽명" name = "clName">
                             </div>
                         </div>
                       
                         <div class="form-group">
-                            <label for="textArea" class="col-lg-2 control-label">클럽 대표문구</label>
+                            <label for="textArea" class="col-lg-2 control-label" >클럽 대표문구</label>
 
                             <div class="col-lg-10">
-                                <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                <textarea class="form-control" rows="3" id="textArea" name = "content"></textarea>
                                 <span class="help-block">클럽을 소개하는 대표문구를 입력해 주세요. 클럽 홈화면에 입력하신 문구가 출력됩니다.</span>
                             </div>
                         </div>
