@@ -50,7 +50,7 @@ public class CommunityServiceLogic implements CommunityService {
 	}
 
 	@Override
-	public void registCommunity(String communityName, String description, String email) {
+	public void registCommunity(String communityName, String description, String email, String[] category) {
 		//
 		if (em.find(Community.class, communityName) != null) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 커뮤니티입니다.");
@@ -65,7 +65,7 @@ public class CommunityServiceLogic implements CommunityService {
 		
 		String id = IdGenerator.getNextId(Community.class);
 		
-		Community community = new Community(id,communityName, description, towner);
+		Community community = new Community(id,communityName, description, towner, category);
 		
 		em.store(community);
 	}

@@ -13,7 +13,10 @@ public class Community implements Identifiable {
 	private String id;
 	private String name;
 	private String description;
+	private String[] category;
+
 	private Date openDate;
+	private List<Club> clubs;
 
 	private CommunityManager manager;
 	private List<CommunityMember> members;
@@ -34,6 +37,21 @@ public class Community implements Identifiable {
 		this.description = description;
 		this.members = new ArrayList<CommunityMember>();
 		this.openDate = new Date();
+		this.clubs = new ArrayList<Club>();
+		
+		setManager(admin);
+		addMember(admin);
+	}
+	
+	public Community(String id, String communityName, String description, SocialPerson admin, String[] category){
+		//
+		this.id = id;
+		this.name = communityName;
+		this.description = description;
+		this.members = new ArrayList<CommunityMember>();
+		this.openDate = new Date();
+		this.category = category;
+		this.clubs = new ArrayList<Club>();
 		
 		setManager(admin);
 		addMember(admin);
@@ -89,7 +107,21 @@ public class Community implements Identifiable {
 		this.openDate = openDate;
 	}
 
-	
+	public String[] getCategory() {
+		return category;
+	}
+
+	public void setCategory(String[] category) {
+		this.category = category;
+	}
+
+	public List<Club> getClubs() {
+		return clubs;
+	}
+
+	public void setClubs(List<Club> clubs) {
+		this.clubs = clubs;
+	}
 	//--------------------------------------------------------------------------
 	// public methods
 	
@@ -141,4 +173,8 @@ public class Community implements Identifiable {
 			members.remove(found);
 		}
 	}
+
+	
+
+
 }

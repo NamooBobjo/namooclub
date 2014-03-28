@@ -8,6 +8,26 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<font color="lightblue">${loginUser}님 환영합니다~!</font>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../logout.do">로그아웃</a></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">설정 <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">개인정보</a></li>
+						</ul></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">

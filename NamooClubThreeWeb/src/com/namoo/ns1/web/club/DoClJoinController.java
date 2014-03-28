@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-@WebServlet("/club/join.do")
+@WebServlet("/clJoin.do")
 public class DoClJoinController extends HttpServlet {
 
 	private static final long serialVersionUID = 7388393525281488753L;
@@ -37,6 +37,6 @@ public class DoClJoinController extends HttpServlet {
 		clservice.joinAsMember(clId, email);
 		
 		
-		resp.sendRedirect("../clList.xhtml?cmId="+cmId);
+		resp.sendRedirect("clList.xhtml?cmId="+cmId);
 	}	
 }

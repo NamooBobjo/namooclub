@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <header>
     <div class="container">
         <div class="row">
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
 <!-- Container ======================================================================================= -->
 <div class="container">
@@ -47,7 +47,7 @@
 
             <div class="well">
                 <p>아래의 내용을 확인해 주세요.</p>
-                <form class="form-horizontal" action="join.do?cmId=${cmId}&clId=${clId}" method = "post">
+                <form class="form-horizontal" action="clJoin.do?cmId=${cmId}&clId=${clId}" method = "post">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">클럽명</label>

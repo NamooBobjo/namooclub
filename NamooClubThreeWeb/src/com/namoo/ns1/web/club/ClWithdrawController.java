@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-@WebServlet("/club/clWithdraw.xhtml")
+@WebServlet("/clWithdraw.xhtml")
 public class ClWithdrawController extends HttpServlet{
 
 	private static final long serialVersionUID = -2090652797436121470L;

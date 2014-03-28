@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+
+import dom.entity.Community;
+
 @WebServlet("/cmcreate.xhtml")
 public class CommunityCreateController extends HttpServlet{
 
@@ -25,6 +30,9 @@ public class CommunityCreateController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// 
+		String cmId = req.getParameter("cmId");	
+		req.setAttribute("cmId", cmId);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/create.jsp");
 		dispatcher.forward(req, resp);
 	}

@@ -42,7 +42,7 @@ public class ClListController extends HttpServlet{
 		Community community = cmservice.findCommunity(cmId);
 		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
 		
-		List<Club> clubs = clservice.findClubsById(cmId);
+		List<Club> clubs = cmservice.findCommunity(cmId).getClubs();
 		List<Club> belongclubs = clservice.findBelongClub(cmId, email);
 		List<Club> managedclubs = clservice.findManagedClub(cmId,email);
 		
@@ -56,11 +56,15 @@ public class ClListController extends HttpServlet{
 		
 		String cmname = community.getName();
 		
+		
+		
 		req.setAttribute("managedclubs", managedclubs);
 		req.setAttribute("clubs", clubs);
 		req.setAttribute("cmName", cmname);
 		req.setAttribute("cmId", cmId);		
 		req.setAttribute("belongclubs", belongclubs);
+		req.setAttribute("belongclubs", belongclubs);
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/home.jsp");
 		dispatcher.forward(req, resp);

@@ -16,7 +16,7 @@ public interface ClubService {
 	/**
 	 * [주민으로 등록된 경우] 클럽 개설
 	 */
-	public void registClub(String cmId,String clubName, String description, String email);
+	public void registClub(String cmId,String category,String clubName, String description, String email);
 
 	/**
 	 * 

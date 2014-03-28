@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-@WebServlet("/club/clJoin.xhtml")
+@WebServlet("/clJoin.xhtml")
 public class ClJoinController extends HttpServlet {
 
 	private static final long serialVersionUID = -1562159333306774813L;

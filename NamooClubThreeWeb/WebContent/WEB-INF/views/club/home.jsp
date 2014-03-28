@@ -32,7 +32,7 @@
                 <div class="jumbotron">
                     <h1>${cmName}</h1>
                     <p>${cmName} 커뮤니티에는 다양한 클럽이 있습니다.</p>
-                    <p><a class="btn btn-warning btn-lg" onclick="location.href='club/create.xhtml?cmId=${cmId}'">클럽 개설</a></p>
+                    <p><a class="btn btn-warning btn-lg" onclick="location.href='create.xhtml?cmId=${cmId}'">클럽 개설</a></p>
                 </div>
             </div>
         </div>
@@ -48,8 +48,9 @@
             </div>
 				<ul class="list-group">
 				 	<c:forEach var="managedclub" items="${managedclubs}" varStatus="list">
-						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
-						<span class="label label-warning">관리</span>
+						<li class="list-group-item">					
+						<span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
+						<span class="label label-info">관리</span>	<span class="label label-primary">${managedclub.category}</span>
 						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'clRemove.xhtml?cmId=${cmId}&clId=${managedclub.id}'><font color = "black">삭제</font></a></span>
 						<p>${managedclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${managed.id}'">상세</button>
@@ -61,7 +62,7 @@
 						<h4>${belongclub.name}</h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='club/clWithdraw.xhtml?cmId=${cmId}&clId=${belongclub.id}'">탈퇴</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clWithdraw.xhtml?cmId=${cmId}&clId=${belongclub.id}'">탈퇴</button>
 						</li>
 					</c:forEach>		
 					</ul>
@@ -74,7 +75,7 @@
 						
 						<h4>${club.name}</h4>	 
 						<p>${club.description }</p>						
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='club/clJoin.xhtml?cmId=${cmId}&clId=${club.id}'">가입</button>
+							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clJoin.xhtml?cmId=${cmId}&clId=${club.id}'">가입</button>
 						</li>
 					</c:forEach>		
                 

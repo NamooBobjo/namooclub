@@ -36,11 +36,11 @@ public class DoCommunityCreateController extends HttpServlet{
 		String loginID = (String)session.getAttribute("loginID");
 		String email = twservice.findTowner(loginID).getEmail();
 	
-		
 		String cmName = req.getParameter("cmName");
 		String description = req.getParameter("description");
-		
-		cmservice.registCommunity(cmName, description, email);
+		String[] category = req.getParameterValues("category");
+			
+		cmservice.registCommunity(cmName, description, email, category);
 		
 		resp.sendRedirect("cmList.xhtml");
 	}

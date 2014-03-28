@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-@WebServlet("/club/withdraw.do")
+@WebServlet("/clwithdraw.do")
 public class DoClWithdrawController extends HttpServlet {
 
 	private static final long serialVersionUID = 2511040536502316369L;
@@ -34,7 +34,7 @@ public class DoClWithdrawController extends HttpServlet {
 		String clubId = req.getParameter("clubId");
 		String cmId = req.getParameter("cmId");
 		clservice.withdrawalClub(clubId, email);
-		resp.sendRedirect("../clList.xhtml?cmId="+cmId);
+		resp.sendRedirect("clList.xhtml?cmId="+cmId);
 	}
 
 	

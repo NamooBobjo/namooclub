@@ -34,7 +34,7 @@
             </div>
  			<p>정말로 클럽을 탈퇴하시겠습니까?</p>
             <div class="well">
-                <form class="form-horizontal" action="withdraw.do?cmId=${cmId}&clubId=${clubId}" method = "post">
+                <form class="form-horizontal" action="clwithdraw.do?cmId=${cmId}&clubId=${clubId}" method = "post">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">클럽명</label>

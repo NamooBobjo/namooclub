@@ -35,8 +35,12 @@ public class DoClCreateController extends HttpServlet{
 		String description = req.getParameter("content");
 		String email = (String)session.getAttribute("loginID");
 		String cmId = req.getParameter("cmId");
+		String category = req.getParameter("category");
 		
-		clservice.registClub(cmId, clubName, description, email);
+		
+		clservice.registClub(cmId, category, clubName, description, email);
+		
+		
 		
 		resp.sendRedirect("clList.xhtml?cmId="+cmId);
 	}

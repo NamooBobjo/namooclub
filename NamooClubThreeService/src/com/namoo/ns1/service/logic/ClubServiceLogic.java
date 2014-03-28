@@ -5,17 +5,20 @@ import java.util.List;
 
 import com.namoo.ns1.data.EntityManager;
 import com.namoo.ns1.service.facade.ClubService;
+import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.facade.IdGenerator;
+import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
+import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 public class ClubServiceLogic implements ClubService {
 
 	private EntityManager em;
-	
+	CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
 	public ClubServiceLogic() {
 		//
 		em = EntityManager.getInstance();
@@ -52,7 +55,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public void registClub(String cmId, String clubName, String description, String email) {
+	public void registClub(String cmId, String category, String clubName, String description, String email) {
 		//
 		if (em.find(Club.class, clubName) != null) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 클럽입니다.");
@@ -66,9 +69,15 @@ public class ClubServiceLogic implements ClubService {
 		
 		String id = IdGenerator.getNextId(Club.class);
 		String cmid = cmId;
-		Club club = new Club(cmid, id, clubName, description, towner);
 		
+		Club club = new Club(cmid, id, category, clubName, description, towner);
+		Community community =  cmservice.findCommunity(cmId);
+		List<Club> clubs = new ArrayList<>();
+		clubs.add(club);
+		community.setClubs(clubs);
+				
 		em.store(club);
+		em.store(community);
 	}
 
 	@Override

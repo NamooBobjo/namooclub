@@ -5,10 +5,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="./resources/common/css/bootstrap.css" rel="stylesheet">
-<link href="./resources/common/css/bootswatch.min.css" rel="stylesheet">
+<%@ include file = "/WEB-INF/views/common/common.jsp"  %>
 </head>
 <body>
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-collapse collapse navbar-responsive-collapse">
+				<font color="lightblue">${loginUser}님 환영합니다~!</font>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../logout.do">로그아웃</a></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown">설정 <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">개인정보</a></li>
+						</ul></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -29,12 +50,12 @@
                             <label class="col-lg-2 control-label">클럽 카테고리</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="카테고리 1">
-                                <input type="text" class="form-control" placeholder="카테고리 2">
-                                <input type="text" class="form-control" placeholder="카테고리 3">
-                                <input type="text" class="form-control" placeholder="카테고리 4">
-                                <input type="text" class="form-control" placeholder="카테고리 5">
-                                <input type="text" class="form-control" placeholder="카테고리 6">
+                                <input type="text" class="form-control" placeholder="카테고리 1" name = "category" required>
+                                <input type="text" class="form-control" placeholder="카테고리 2" name = "category">
+                                <input type="text" class="form-control" placeholder="카테고리 3" name = "category">
+                                <input type="text" class="form-control" placeholder="카테고리 4" name = "category">
+                                <input type="text" class="form-control" placeholder="카테고리 5" name = "category">
+                                <input type="text" class="form-control" placeholder="카테고리 6" name = "category">
                             </div>
                         </div>
 						

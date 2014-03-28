@@ -15,7 +15,9 @@ public class Club implements Identifiable {
 	private String name;
 	private String description;
 	private Date openDate;
+	private String category;
 	
+
 	private ClubManager manager;
 	private List<ClubMember> members;
 	
@@ -28,6 +30,21 @@ public class Club implements Identifiable {
 	 * @param admin
 	 */
 	
+	public Club (String cmid, String id, String category, String clubName, String description, SocialPerson admin) {
+		//
+		this.cmid=cmid;
+		this.id = id;
+		this.name = clubName;
+		this.description= description;
+		this.members = new ArrayList<ClubMember>();
+		this.openDate = new Date();
+		this.category = category;
+		
+		setManager(admin);
+		addMember(admin);
+		
+	}
+	
 	public Club (String cmid, String id, String clubName, String description, SocialPerson admin) {
 		//
 		this.cmid=cmid;
@@ -36,6 +53,7 @@ public class Club implements Identifiable {
 		this.description= description;
 		this.members = new ArrayList<ClubMember>();
 		this.openDate = new Date();
+		
 		
 		setManager(admin);
 		addMember(admin);
@@ -55,6 +73,14 @@ public class Club implements Identifiable {
 	}
 	//--------------------------------------------------------------------------
 		// getter/setter
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	
 	public String getCmid() {
 		return cmid;
