@@ -25,9 +25,21 @@
 									<input type="text" class="form-control" name="cmName">
 								</div>
 							</div>
+						<div class="form-group">
+                            <label class="col-lg-2 control-label">클럽 카테고리</label>
+
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="카테고리 1">
+                                <input type="text" class="form-control" placeholder="카테고리 2">
+                                <input type="text" class="form-control" placeholder="카테고리 3">
+                                <input type="text" class="form-control" placeholder="카테고리 4">
+                                <input type="text" class="form-control" placeholder="카테고리 5">
+                                <input type="text" class="form-control" placeholder="카테고리 6">
+                            </div>
+                        </div>
+						
 							<div class="form-group">
-								<label for="textArea" class="col-lg-2 control-label">커뮤니티
-									대표문구</label>
+								<label for="textArea" class="col-lg-2 control-label">커뮤니티 대표문구</label>
 								<div class="col-lg-10">
 									<textarea class="form-control" rows="3" name="description"></textarea>
 									<br /> <span class="help-block">커뮤니티를 소개하는 대표문구를 입력해

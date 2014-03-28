@@ -55,16 +55,17 @@
  		<div class="tab-pane fade active in" id="joined">
 				<ul class="list-group">
 					<c:forEach var="community" items="${managedCommunities}" varStatus="list">
-						<li class="list-group-item">
+						<li class="list-group-item"> <span class="badge">${community.openDate}</span>
 						<span class="label label-warning">관리</span>
-						<h4>${community.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${community.id}'><font color = "black">삭제</font></a></span>
+						<h4>${community.name}</h4>	<span class="badge"><a  href = 'cmRemove.xhtml?cmId=${community.id}'><font color = "black">삭제</font></a></span>
 						<p>${community.description }</p>					
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${community.id}'">상세</button>
 						</li>
 					</c:forEach>									
 					<c:forEach var="community" items="${belongCommunities}" varStatus="list">
 				
-						<li class="list-group-item"><h4>${community.name}</h4>	 
+						<li class="list-group-item"><span class="badge">${community.openDate}</span>
+						<h4>${community.name}</h4>	 <span class="badge">${community.openDate}</span>
 						<p>${community.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='withdraw.xhtml?cmId=${community.id}'">멤버 탈퇴</button>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${community.id}'">상세</button>
@@ -75,8 +76,8 @@
 				
 				 <div class="tab-pane fade" id="unjoined">	
 						<ul class="list-group">				
-					<c:forEach var="community" items="${communities}" varStatus="list">
-						<li class="list-group-item"><h4>${community.name}</h4> <span class="badge">${community.openDate}</span>
+					<c:forEach var="community" items="${communities}" varStatus="list"> 
+						<li class="list-group-item"><span class="badge">${community.openDate}</span><h4>${community.name}</h4>
 						<p>${community.description }</p>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href = 'cmjoin.xhtml?cmId=${community.id}'">커뮤니티 가입</button>	
 						</li>
