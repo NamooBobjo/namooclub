@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Club;
@@ -58,6 +59,11 @@ public class ClListController extends HttpServlet{
 		req.setAttribute("cmId", cmId);		
 		req.setAttribute("belongclubs", belongclubs);
 		req.setAttribute("belongclubs", belongclubs);
+		
+		String loginID = (String) session.getAttribute("loginID");
+		TownerService townerService=NamooClubServiceFactory.getInstance().getTownerService();
+		String loginUser= townerService.findTowner(loginID).getName();
+		req.setAttribute("loginUser", loginUser);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/home.jsp");

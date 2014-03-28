@@ -16,6 +16,13 @@
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<font color="lightblue">${loginUser}님 환영합니다~!</font>
 				<ul class="nav navbar-nav navbar-right">
+			
+                <li class="active"><a href="#">커뮤니티 홈</a></li>
+                <li><a href="#">인기 커뮤니티</a></li>
+                <li><a href="#">랭킹</a></li>
+                <li><a href="#">공지사항</a></li>
+            
+				
 					<li><a href="logout.do">로그아웃</a></li>
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"  data-toggle="dropdown">설정 <b class="caret"></b></a>
@@ -117,7 +124,7 @@
 				<ul class="list-unstyled">
 					<li class="pull-right"><a href="#top">위로 이동</a></li>
 					<li><a href="cmList.xhtml">커뮤니티 홈</a></li>
-					<li><a href="/user/withdraw.xhtml">회원탈퇴</a></li>
+					<li><a href="user/withdraw.xhtml">회원탈퇴</a></li>
 				</ul>
 				<p>© NamooSori 2014.</p>
 			</div>

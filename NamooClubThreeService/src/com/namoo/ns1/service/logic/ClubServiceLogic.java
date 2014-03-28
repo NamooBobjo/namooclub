@@ -177,6 +177,7 @@ public class ClubServiceLogic implements ClubService {
 	@Override
 	public void removeClub(String clubName) {
 		//
+	
 		em.remove(Club.class, clubName);
 	}
 

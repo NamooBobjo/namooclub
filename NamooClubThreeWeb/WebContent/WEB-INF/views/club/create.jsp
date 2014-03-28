@@ -17,7 +17,7 @@
     <div class="container">
    
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-         
+         <font color="lightblue">${loginUser}님 환영합니다~!</font>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="logout.do">로그아웃</a></li>
               

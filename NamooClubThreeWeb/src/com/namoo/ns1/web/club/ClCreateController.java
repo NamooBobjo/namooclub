@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
@@ -37,6 +39,11 @@ public class ClCreateController extends HttpServlet{
 		Community community = cmservice.findCommunity(cmId);
 		List<String> category = community.getCategory();		
 		
+		HttpSession session = req.getSession();
+		String loginID = (String) session.getAttribute("loginID");
+		TownerService townerService=NamooClubServiceFactory.getInstance().getTownerService();
+		String loginUser= townerService.findTowner(loginID).getName();
+		req.setAttribute("loginUser", loginUser);
 		req.setAttribute("category", category);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/create.jsp");
