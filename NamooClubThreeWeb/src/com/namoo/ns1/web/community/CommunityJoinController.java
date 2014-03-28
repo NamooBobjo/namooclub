@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
@@ -35,10 +37,17 @@ public class CommunityJoinController extends HttpServlet {
 		String cmId = req.getParameter("cmId");		
 		Community community = cmservice.findCommunity(cmId);
 		
+		
 		String cmName = community.getName();
 	
 		req.setAttribute("cmId", cmId);		
 		req.setAttribute("cmName", cmName);
+		
+		HttpSession session = req.getSession();
+		String loginID = (String) session.getAttribute("loginID");
+		TownerService townerService=NamooClubServiceFactory.getInstance().getTownerService();
+		String loginUser= townerService.findTowner(loginID).getName();
+		req.setAttribute("loginUser", loginUser);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/community/join.jsp");
 		dispatcher.forward(req, resp);
