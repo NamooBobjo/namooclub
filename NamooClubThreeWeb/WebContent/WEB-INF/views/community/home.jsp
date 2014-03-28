@@ -58,7 +58,7 @@
 						<li class="list-group-item">
 						<span class="label label-warning">관리</span>
 						<h4>${community.name}</h4>	 <span class="badge"><a  href = 'cmRemove.xhtml?cmId=${community.id}'><font color = "black">삭제</font></a></span>
-						<p>${community.description }</p>						
+						<p>${community.description }</p>					
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${community.id}'">상세</button>
 						</li>
 					</c:forEach>									
@@ -76,7 +76,7 @@
 				 <div class="tab-pane fade" id="unjoined">	
 						<ul class="list-group">				
 					<c:forEach var="community" items="${communities}" varStatus="list">
-						<li class="list-group-item"><h4>${community.name}</h4> <span class="badge">2011.03.21</span>
+						<li class="list-group-item"><h4>${community.name}</h4> <span class="badge">${community.openDate}</span>
 						<p>${community.description }</p>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href = 'cmjoin.xhtml?cmId=${community.id}'">커뮤니티 가입</button>	
 						</li>
