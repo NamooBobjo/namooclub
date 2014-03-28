@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,7 +48,7 @@
             </div>
 				<ul class="list-group">
 				 	<c:forEach var="managedclub" items="${managedclubs}" varStatus="list">
-						<li class="list-group-item">
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
 						<span class="label label-warning">관리</span>
 						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'clRemove.xhtml?cmId=${cmId}&clId=${managedclub.id}'><font color = "black">삭제</font></a></span>
 						<p>${managedclub.description }</p>						
@@ -56,7 +57,7 @@
 					</c:forEach>		
 				
              	<c:forEach var="belongclub" items="${belongclubs}" varStatus="list">
-						<li class="list-group-item">
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
 						<h4>${belongclub.name}</h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
@@ -69,7 +70,7 @@
                 <h2 id="container">미가입된 클럽</h2>
             <ul class="list-group">
               	<c:forEach var="club" items="${clubs}" varStatus="list">
-						<li class="list-group-item">
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
 						
 						<h4>${club.name}</h4>	 
 						<p>${club.description }</p>						

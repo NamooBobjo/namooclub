@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,7 +57,7 @@
  		<div class="tab-pane fade active in" id="joined">
 				<ul class="list-group">
 					<c:forEach var="community" items="${managedCommunities}" varStatus="list">
-						<li class="list-group-item"> <span class="badge">${community.openDate}</span>
+						<li class="list-group-item"> <span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
 						<span class="label label-warning">관리</span>
 						<h4>${community.name}</h4>	<span class="badge"><a  href = 'cmRemove.xhtml?cmId=${community.id}'><font color = "black">삭제</font></a></span>
 						<p>${community.description }</p>					
@@ -64,8 +66,8 @@
 					</c:forEach>									
 					<c:forEach var="community" items="${belongCommunities}" varStatus="list">
 				
-						<li class="list-group-item"><span class="badge">${community.openDate}</span>
-						<h4>${community.name}</h4>	 <span class="badge">${community.openDate}</span>
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
+						<h4>${community.name}</h4>	
 						<p>${community.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='withdraw.xhtml?cmId=${community.id}'">멤버 탈퇴</button>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${community.id}'">상세</button>
@@ -77,7 +79,7 @@
 				 <div class="tab-pane fade" id="unjoined">	
 						<ul class="list-group">				
 					<c:forEach var="community" items="${communities}" varStatus="list"> 
-						<li class="list-group-item"><span class="badge">${community.openDate}</span><h4>${community.name}</h4>
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span><h4>${community.name}</h4>
 						<p>${community.description }</p>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href = 'cmjoin.xhtml?cmId=${community.id}'">커뮤니티 가입</button>	
 						</li>
