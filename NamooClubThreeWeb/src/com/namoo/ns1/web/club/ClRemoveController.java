@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.namoo.ns1.service.facade.ClubService;
+import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Club;
@@ -40,6 +42,12 @@ public class ClRemoveController extends HttpServlet {
 		req.setAttribute("clName", clName);
 		req.setAttribute("clId", clId);
 		req.setAttribute("cmId", cmId);
+		
+		HttpSession session = req.getSession();
+		String loginID = (String) session.getAttribute("loginID");
+		TownerService townerService=NamooClubServiceFactory.getInstance().getTownerService();
+		String loginUser= townerService.findTowner(loginID).getName();
+		req.setAttribute("loginUser", loginUser);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/remove.jsp");
 		dispatcher.forward(req, resp);

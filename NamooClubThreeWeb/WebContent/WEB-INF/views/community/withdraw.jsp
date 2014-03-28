@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>커뮤니티탈퇴</title>
 </head>
 <body>
 
@@ -16,13 +16,6 @@
 				<font color="lightblue">${loginUser}님 환영합니다~!</font>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="../logout.do">로그아웃</a></li>
-
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">설정 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">개인정보</a></li>
-						</ul></li>
-
 				</ul>
 			</div>
 		</div>
@@ -35,7 +28,8 @@
 					<h2 id="container">커뮤니티 탈퇴하기</h2>
 				</div>
 				<div class="well">
-					<p>정말 삭제하시겠습니까?</p>
+					<p>정말 커뮤니티를 탈퇴하시겠습니까?</p>
+					 <div class="well">
 					<form class="form-horizontal" action="${ctx}/cmwithdraw.do?cmId=${cmId}" method="post">
 						<fieldset>
 							<div class="form-group">
@@ -59,5 +53,26 @@
 			</div>
 		</div>
 	</div>
+<!-- Footer ========================================================================================== -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled">
+                    <li class="pull-right"><a href="#top">위로 이동</a></li>
+                    <li><a href="#">커뮤니티 홈</a></li>
+                    <li><a href="#">회원탈퇴</a></li>
+                </ul>
+                <p>© NamooSori 2014.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+	<script>
+	function cancelPage() { 
+	   window.history.back();
+	    return false;
+	}
+	</script>
+	
 </body>
 </html>
