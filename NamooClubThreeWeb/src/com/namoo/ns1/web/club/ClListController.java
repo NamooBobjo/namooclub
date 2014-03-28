@@ -43,8 +43,8 @@ public class ClListController extends HttpServlet{
 		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
 		
 		List<Club> clubs = clservice.findClubsById(cmId);
-		List<Club> belongclubs = clservice.findBelongClub(email);
-		List<Club> managedclubs = clservice.findManagedClub(email);
+		List<Club> belongclubs = clservice.findBelongClub(cmId, email);
+		List<Club> managedclubs = clservice.findManagedClub(cmId,email);
 		
 		for(Club club : belongclubs){
 			clubs.remove(club);

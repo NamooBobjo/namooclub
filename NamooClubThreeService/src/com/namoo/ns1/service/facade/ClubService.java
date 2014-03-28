@@ -69,7 +69,7 @@ public interface ClubService {
 	 * @param email
 	 * @return
 	 */
-	public List<Club> findBelongClub(String email);
+	public List<Club> findBelongClub(String cmId, String email);
 	
 	/**
 	 * 자신이 관리하는 클럽 목록조회
@@ -77,7 +77,7 @@ public interface ClubService {
 	 * @param email
 	 * @return
 	 */
-	public List<Club> findManagedClub(String email);
+	public List<Club> findManagedClub(String cmId, String email);
 
 	/**
 	 * 클럽에서 탈퇴하기

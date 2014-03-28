@@ -168,14 +168,14 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public List<Club> findBelongClub(String email) {
+	public List<Club> findBelongClub(String cmId, String email) {
 		//
 		List<Club> clubs = em.findAll(Club.class);
 		if (clubs == null) return null;
 		
 		List<Club> belongs = new ArrayList<>();
 		for (Club club : clubs) {
-			if (club.findMember(email) != null) {
+			if (club.findMember(email) != null&&club.getCmid().equals(cmId)) {
 				belongs.add(club);
 			}
 		}
@@ -198,14 +198,14 @@ public class ClubServiceLogic implements ClubService {
 	}
 	
 	@Override
-	public List<Club> findManagedClub(String email) {
+	public List<Club> findManagedClub(String cmId, String email) {
 		//
 		List<Club> clubs = em.findAll(Club.class);
 		if (clubs == null) return null;
 		
 		List<Club> manages = new ArrayList<>();
 		for (Club club : clubs) {
-			if (club.getManager().getEmail().equals(email)) {
+			if (club.getManager().getEmail().equals(email)&&club.getCmid().equals(cmId)) {
 				manages.add(club);
 			}
 		}
