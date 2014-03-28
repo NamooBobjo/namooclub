@@ -66,7 +66,7 @@ body{
 }
 </style>
 </head>
-<body onload = "getid(document.FrmUserInfo)">
+<body onload = "callCookie();">
 	<div class="container">
 
 		<!-- header -->
@@ -76,11 +76,11 @@ body{
 
 		<!-- form -->
 		
-		<form class = "form-signin" action="login.do" method = "post" name = "sendform">
+		<form class = "form-signin" action="login.do" method = "post" name = "myform" onSubmit = "return sendit();">
 			<input type="text" class="form-control" name = "userID" id="inputEmail" placeholder="아이디" required> 
 			<input type="password"class="form-control" name = "userPS" id="inputPassword" placeholder="비밀번호" required>
 			<label class="checkbox">
-			 <input type="checkbox" name = checksaveid onclick = "saveid(this.form)" value="remember-me"> 아이디 기억하기
+			 <input type="checkbox" name = "idsave" onclick = "saveid(this.form)" value="remember-me"> 아이디 기억하기
 			</label>
 	
 		
@@ -102,49 +102,45 @@ body{
 	    location.href = "view/user/join.xhtml";
 	    return false;
 	}
-	function setCookie (name, value, expiredays)
-	{
-	 var todayDate = new Date();
-	 todayDate.setDate( todayDate.getDate() + expiredays );
-	 document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() +
-	";";
-	}
-	function getCookie(name)
-	{
-	 var Found = false;
-	 var start, end;
-	 var i = 0;
-	 while (i <= document.cookie.length)
-	 {
-	  start = i;
-	  end = start + name.length;
-	  if (document.cookie.substring(start, end) == name)
-	  {
-	   Found = true;
-	   break;
-	  }
-	  i++;
-	 }
-	 if (Found == true)
-	 {
-	  start = end + 1;
-	  end = document.cookie.indexOf(';', start);
-	  if (end < start) end = document.cookie.length;
-	  return document.cookie.substring(start, end);
-	 }
-	 return '';
-	}
-	function setValue()
-	{
-	 var fm = document.sendform;
-	 setCookie ('userID', fm.id.value, 1);
-	}
-	function getValue()
-	{
-	 var fm = document.sendform;
-	 fm.id.value = getCookie('userID');
+	
+	function setCookie(name,value,expiredays){
+		var todayDate = new Date();
+		todayDate.setDate(todayDate.getDate()+expiredays);
+		document.cookie = name + "="+escape(value) + ";path =/; expires=" +todayDate.toGMTString()+";";
+	
 	}
 
+	function getCookie(Name){
+		var search = Name +"=";
+		if(document.cookie.length>0){
+			offset = document.cookie.indexOf(search);
+			if(offset!=-1){
+				offset+= search.length;
+				end = document.cookie.indexOf(";", offset);
+				if(end==-1){
+					end = document.cookie.length;
+				}
+				return unescape(document.cookie.substring(offset,end));
+			}
+		}
+	}
+	
+	function sendit(){
+		if(document.myform.idsave.checked == true){
+			setCookie("userID",document.myform.userID.value,7);
+		}
+		else{
+			setCookie("userID",document.myform.userID.value,0);
+		}
+	}
+	
+	function callCookie(){
+		document.myform.userID.focus();
+		if(getCookie("userID")){
+			document.myform.userID.value = getCookie("userID");
+			document.myform.idsave.checked = true;
+		}
+	}
 	</script>
 
 </body>

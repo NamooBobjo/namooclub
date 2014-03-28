@@ -59,6 +59,7 @@
 				
              	<c:forEach var="belongclub" items="${belongclubs}" varStatus="list">
 						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${belongclub.openDate}" pattern="yyyy-MM-dd"/></span>
+							<span class="label label-primary">${belongclub.category}</span>
 						<h4><a href = "#">${belongclub.name}</a></h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
@@ -72,7 +73,7 @@
             <ul class="list-group">
               	<c:forEach var="club" items="${clubs}" varStatus="list">
 						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
-						
+							<span class="label label-primary">${club.category}</span>						
 						<h4><a href = "#">${club.name}</a></h4>	 
 						<p>${club.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clJoin.xhtml?cmId=${cmId}&clId=${club.id}'">가입</button>
@@ -91,7 +92,7 @@
                 <ul class="list-unstyled">
                     <li class="pull-right"><a href="#top">위로 이동</a></li>
                     <li><a href="cmList.xhtml">커뮤니티 홈</a></li>
-                    <li><a href="#">회원탈퇴</a></li>
+                    <li><a href="/user/withdraw.xhtml">회원탈퇴</a></li>
                 </ul>
                 <p>© NamooSori 2014.</p>
             </div>
