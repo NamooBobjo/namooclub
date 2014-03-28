@@ -65,11 +65,9 @@
 								<li class="list-group-item"><span class="badge">
 								 <fmt:formatDate	value="${community.openDate}" pattern="yyyy-MM-dd" /></span> 
 											<span class="label label-info">관리</span>
-									<h4>${community.name}</h4> <span class="badge"><a	href='cmRemove.xhtml?cmId=${community.id}'>
+									<h4><a href = "clList.xhtml?cmId=${community.id}">${community.name} (클럽 수 :${community.clubs.size()}개 , 회원 수 : ${community.members.size()})</a></h4> <span class="badge"><a	href='cmRemove.xhtml?cmId=${community.id}'>
 									<font	color="black">삭제</font></a></span>
 									<p>${community.description }</p>
-									<button type="button" class="btn btn-default btn-sm"
-										onclick="location.href='clList.xhtml?cmId=${community.id}'">상세</button>
 								</li>
 							</c:forEach>
 
@@ -77,13 +75,10 @@
 
 								<li class="list-group-item"><span class="badge">
 								<fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd" /></span>
-									<h4>${community.name}</h4>
+									<h4><a href = "clList.xhtml?cmId=${community.id}">${community.name} (클럽 수 :${community.clubs.size()}개 , 회원 수 : ${community.members.size()})</a> </h4>
 									<p>${community.description }</p>
 									<button type="button" class="btn btn-default btn-sm"
-										onclick="location.href='withdraw.xhtml?cmId=${community.id}'">멤버
-										탈퇴</button>
-									<button type="button" class="btn btn-default btn-sm"
-										onclick="location.href='clList.xhtml?cmId=${community.id}'">상세</button>
+										onclick="location.href='withdraw.xhtml?cmId=${community.id}'">멤버탈퇴</button>
 								</li>
 							</c:forEach>
 							
@@ -101,7 +96,7 @@
 								varStatus="list">
 								<li class="list-group-item"><span class="badge"><fmt:formatDate
 											value="${community.openDate}" pattern="yyyy-MM-dd" /></span>
-									<h4>${community.name}</h4>
+									<h4>${community.name} (클럽 수 :${community.clubs.size()}개 , 회원 : ${community.members.size()}명)</h4>
 									<p>${community.description }</p>
 									<button type="button" class="btn btn-default btn-sm"
 										onclick="location.href = 'cmjoin.xhtml?cmId=${community.id}'">커뮤니티

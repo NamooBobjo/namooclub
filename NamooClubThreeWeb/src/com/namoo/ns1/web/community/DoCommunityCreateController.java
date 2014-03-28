@@ -1,6 +1,8 @@
 package com.namoo.ns1.web.community;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,8 +40,17 @@ public class DoCommunityCreateController extends HttpServlet{
 	
 		String cmName = req.getParameter("cmName");
 		String description = req.getParameter("description");
-		String[] category = req.getParameterValues("category");
-			
+		
+		
+		List<String> category = new ArrayList<>();
+		String[] categories = req.getParameterValues("category");
+		for(String cate : categories){
+			if(!cate.equals("")){
+			category.add(cate);
+			}
+		}
+		
+		
 		cmservice.registCommunity(cmName, description, email, category);
 		
 		resp.sendRedirect("cmList.xhtml");

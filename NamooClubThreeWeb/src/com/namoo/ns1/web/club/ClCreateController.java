@@ -1,6 +1,7 @@
 package com.namoo.ns1.web.club;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,7 +35,7 @@ public class ClCreateController extends HttpServlet{
 	CommunityService cmservice = NamooClubServiceFactory.getInstance().getCommunityService();
 		
 		Community community = cmservice.findCommunity(cmId);
-		String[] category = community.getCategory();		
+		List<String> category = community.getCategory();		
 		
 		req.setAttribute("category", category);
 		

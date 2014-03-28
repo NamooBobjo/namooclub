@@ -45,7 +45,6 @@ public class CommunityListController extends HttpServlet{
 		List<Community> managedCommunities = service.findManagedCommnities(loginID);
 		
 		
-		
 		for(Community community : belongCommunities){
 			communities.remove(community);
 		}

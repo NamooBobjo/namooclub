@@ -42,7 +42,12 @@ public class ClubServiceLogic implements ClubService {
 		String cmid = cmId;
 		Club club = new Club(cmid, id, clubName, description, admin);
 		
+		Community community =  cmservice.findCommunity(cmId);
+		
+		community.getClubs().add(club);
+				
 		em.store(club);
+		em.store(community);
 	}
 
 	private SocialPerson createPerson(String name, String email,
@@ -72,10 +77,9 @@ public class ClubServiceLogic implements ClubService {
 		
 		Club club = new Club(cmid, id, category, clubName, description, towner);
 		Community community =  cmservice.findCommunity(cmId);
-		List<Club> clubs = new ArrayList<>();
-		clubs.add(club);
-		community.setClubs(clubs);
-				
+		
+		community.addClub(club);
+							
 		em.store(club);
 		em.store(community);
 	}

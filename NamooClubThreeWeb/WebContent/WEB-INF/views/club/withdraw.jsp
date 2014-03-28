@@ -30,12 +30,12 @@
 				<div class="well">
  			<p>정말 클럽을 탈퇴하시겠습니까?</p>
             <div class="well">
-                <form class="form-horizontal" action="clwithdraw.do?clId=${clId}&cmId=${cmId}" method = "post">
+                <form class="form-horizontal" action="clwithdraw.do?clubId=${clubId}&cmId=${cmId}" method = "post">
                     <fieldset>
                         <div class="form-group">
                            <div class="col-lg-10">
 									Club Name : <input type="text" class="form-control"
-										name="cmName" value="${clName}" disabled>
+										name="cmName" value="${clubName}" disabled>
 								</div>
                         </div>
                        <div class="form-group">

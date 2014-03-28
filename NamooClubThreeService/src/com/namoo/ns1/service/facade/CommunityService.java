@@ -44,7 +44,7 @@ public interface CommunityService {
 	 * 
 	 * @throws NamooRuntimeException
 	 */
-	public void registCommunity(String communityName, String description, String email, String[] category);
+	public void registCommunity(String communityName, String description, String email, List<String> category);
 
 	/**
 	 * 

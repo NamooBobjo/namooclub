@@ -2,6 +2,7 @@ package com.namoo.ns1.web.club;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -42,21 +43,14 @@ public class ClListController extends HttpServlet{
 		Community community = cmservice.findCommunity(cmId);
 		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
 		
-		List<Club> clubs = cmservice.findCommunity(cmId).getClubs();
-		List<Club> belongclubs = clservice.findBelongClub(cmId, email);
-		List<Club> managedclubs = clservice.findManagedClub(cmId,email);
+		List<Club> clubs = new ArrayList<>(cmservice.findCommunity(cmId).getClubs());
+		List<Club> belongclubs = new ArrayList<>(clservice.findBelongClub(cmId, email));
+		List<Club> managedclubs = new ArrayList<>(clservice.findManagedClub(cmId,email));
 		
-		for(Club club : belongclubs){
-			clubs.remove(club);
-		}
-
-		for(Club club : managedclubs){
-			belongclubs.remove(club);
-		}
+		clubs = filter(clubs, belongclubs);
+		belongclubs = filter(belongclubs, managedclubs);
 		
 		String cmname = community.getName();
-		
-		
 		
 		req.setAttribute("managedclubs", managedclubs);
 		req.setAttribute("clubs", clubs);
@@ -70,5 +64,21 @@ public class ClListController extends HttpServlet{
 		dispatcher.forward(req, resp);
 	}
 
+	private List<Club> filter(List<Club> all, List<Club> filters) {
+		//
+		List<Club> removed = new ArrayList<>();
+		for (Club filter : filters) {
+			for (Club club : all) {
+				if (filter.getId().equals(club.getId())) {
+					removed.add(club);
+					break;
+				}
+			}
+		}
+		if (!removed.isEmpty()) {
+			all.removeAll(removed);
+		}
+		return all;
+	}
 	
 }

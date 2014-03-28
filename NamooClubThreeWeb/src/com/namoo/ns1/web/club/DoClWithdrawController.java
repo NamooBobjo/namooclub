@@ -33,6 +33,9 @@ public class DoClWithdrawController extends HttpServlet {
 		ClubService clservice = NamooClubServiceFactory.getInstance().getClubService();
 		String clubId = req.getParameter("clubId");
 		String cmId = req.getParameter("cmId");
+	
+		System.out.println(clubId);
+		
 		clservice.withdrawalClub(clubId, email);
 		resp.sendRedirect("clList.xhtml?cmId="+cmId);
 	}

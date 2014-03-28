@@ -49,17 +49,17 @@
 				<ul class="list-group">
 				 	<c:forEach var="managedclub" items="${managedclubs}" varStatus="list">
 						<li class="list-group-item">					
-						<span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
+						<span class="badge"><fmt:formatDate value="${managedclub.openDate}" pattern="yyyy-MM-dd"/></span>
 						<span class="label label-info">관리</span>	<span class="label label-primary">${managedclub.category}</span>
-						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'clRemove.xhtml?cmId=${cmId}&clId=${managedclub.id}'><font color = "black">삭제</font></a></span>
+						<h4><a href="#">${managedclub.name}(회원 : ${managedclub.members.size()}명)</a></h4>	 <span class="badge"><a  href = 'clRemove.xhtml?cmId=${cmId}&clId=${managedclub.id}'><font color = "black">삭제</font></a></span>
 						<p>${managedclub.description }</p>						
-							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${managed.id}'">상세</button>
+						
 						</li>
 					</c:forEach>		
 				
              	<c:forEach var="belongclub" items="${belongclubs}" varStatus="list">
-						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
-						<h4>${belongclub.name}</h4>	 
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${belongclub.openDate}" pattern="yyyy-MM-dd"/></span>
+						<h4><a href = "#">${belongclub.name}</a></h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clWithdraw.xhtml?cmId=${cmId}&clId=${belongclub.id}'">탈퇴</button>
@@ -73,7 +73,7 @@
               	<c:forEach var="club" items="${clubs}" varStatus="list">
 						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
 						
-						<h4>${club.name}</h4>	 
+						<h4><a href = "#">${club.name}</a></h4>	 
 						<p>${club.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clJoin.xhtml?cmId=${cmId}&clId=${club.id}'">가입</button>
 						</li>
