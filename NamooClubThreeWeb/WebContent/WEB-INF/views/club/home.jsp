@@ -48,7 +48,7 @@
             </div>
 				<ul class="list-group">
 				 	<c:forEach var="managedclub" items="${managedclubs}" varStatus="list">
-						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
 						<span class="label label-warning">관리</span>
 						<h4>${managedclub.name}</h4>	 <span class="badge"><a  href = 'clRemove.xhtml?cmId=${cmId}&clId=${managedclub.id}'><font color = "black">삭제</font></a></span>
 						<p>${managedclub.description }</p>						
@@ -57,7 +57,7 @@
 					</c:forEach>		
 				
              	<c:forEach var="belongclub" items="${belongclubs}" varStatus="list">
-						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
 						<h4>${belongclub.name}</h4>	 
 						<p>${belongclub.description }</p>						
 							<button type="button" class="btn btn-default btn-sm" onclick = "location.href='clList.xhtml?cmId=${belongclub.id}'">상세</button>
@@ -70,7 +70,7 @@
                 <h2 id="container">미가입된 클럽</h2>
             <ul class="list-group">
               	<c:forEach var="club" items="${clubs}" varStatus="list">
-						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
+						<li class="list-group-item"><span class="badge"><fmt:formatDate value="${club.openDate}" pattern="yyyy-MM-dd"/></span>
 						
 						<h4>${club.name}</h4>	 
 						<p>${club.description }</p>						
